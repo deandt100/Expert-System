@@ -15,6 +15,11 @@ vector<string>	readFile(string fileName)
 	while (!file.eof())
 	{
 		getline(file, line);
+		if (line.empty())
+		{
+			cout << "Error: File cannot be empty" << endl;
+			exit (-1);
+		}
 		fileData.push_back(line);
 	}
 	file.close();

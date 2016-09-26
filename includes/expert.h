@@ -6,7 +6,7 @@
 # include <fstream>
 # include <vector>
 
- using namespace std;
+using namespace std;
 
 vector<string>	readFile(string fileName);
 

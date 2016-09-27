@@ -1,7 +1,11 @@
 NAME = expert_system
 
-SRC = src/main.cpp \
-		src/readFile.cpp
+SRC_FILES = main.cpp \
+			readFile.cpp \
+			Rule.class.cpp \
+			Var.class.cpp
+
+SRC = $(addprefix src/, $(SRC_FILES))
 
 OBJ = $(SRC:.cpp=.o)
 

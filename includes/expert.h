@@ -17,4 +17,6 @@ vector<Var*>	makeVars(vector<string> data);
 
 Var				*getVar(char varName, vector<Var*> vars);
 
+bool			checkLine(char *line);
+
 #endif

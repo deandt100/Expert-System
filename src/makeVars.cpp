@@ -24,6 +24,12 @@ vector<Var*>	makeVars(vector<string> data)
 		k = 0;
 		isTruth = false;
 		line = (char *)data.at(i).c_str();
+		if (checkLine(line) == false)
+		{
+			cout << "Syntax error line " << i + 1 << endl;
+			exit (-1);
+		}
+		//cout << "LOOP!" << endl;
 		while (line[k])
 		{
 			if (line[k] == '=' && line[k + 1] != '>')

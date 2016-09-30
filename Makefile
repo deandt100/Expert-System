@@ -5,7 +5,8 @@ SRC_FILES = main.cpp \
 			Rule.class.cpp \
 			Var.class.cpp \
 			makeVars.cpp \
-			getVar.cpp
+			getVar.cpp \
+			checkLine.cpp
 
 SRC = $(addprefix src/, $(SRC_FILES))
 

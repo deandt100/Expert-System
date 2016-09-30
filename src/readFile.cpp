@@ -22,7 +22,8 @@ vector<string>	readFile(string fileName)
 			cout << "Error: File cannot be empty" << endl;
 			exit (-1);
 		}
-		fileData.push_back(line);
+		if (!line.empty())
+			fileData.push_back(line);
 		i++;
 	}
 	file.close();

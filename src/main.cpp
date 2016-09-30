@@ -3,14 +3,12 @@
 int	main(int argc, char **argv)
 {
 	vector<string>	data;
+	vector<Var>		vars;
 
 	if (argc == 2)
 	{
 		data = readFile(argv[1]);
-		for (int i = 0; i < data.size(); i++)
-		{
-			cout << "LINE: " << data.at(i) << endl;
-		}
+		vars = makeVars(data);
 	}
 	else
 	{

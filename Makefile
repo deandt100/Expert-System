@@ -3,7 +3,8 @@ NAME = expert_system
 SRC_FILES = main.cpp \
 			readFile.cpp \
 			Rule.class.cpp \
-			Var.class.cpp
+			Var.class.cpp \
+			makeVars.cpp
 
 SRC = $(addprefix src/, $(SRC_FILES))
 

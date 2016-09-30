@@ -13,6 +13,8 @@ using namespace std;
 
 vector<string>	readFile(string fileName);
 
-vector<Var>		makeVars(vector<string> data);
+vector<Var*>	makeVars(vector<string> data);
+
+Var				*getVar(char varName, vector<Var*> vars);
 
 #endif

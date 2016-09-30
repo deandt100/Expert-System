@@ -1,6 +1,6 @@
 #include <expert.h>
 
-bool		isVar(vector<Var*> vars, char varName)
+bool			isVar(vector<Var*> vars, char varName)
 {
 	for (int i = 0; i < vars.size(); i++)
 	{
@@ -10,12 +10,13 @@ bool		isVar(vector<Var*> vars, char varName)
 	return (false);
 }
 
-vector<Var>	makeVars(vector<string> data)
+vector<Var*>	makeVars(vector<string> data)
 {
 	char			*line;
 	char			varName;
 	int				k;
 	bool			isTruth;
+	Var				*temp;
 	vector<Var*>	vars;
 
 	for (int i = 0; i < data.size(); i++)
@@ -23,7 +24,6 @@ vector<Var>	makeVars(vector<string> data)
 		k = 0;
 		isTruth = false;
 		line = (char *)data.at(i).c_str();
-		cout << "LINE: " << line << endl;
 		while (line[k])
 		{
 			if (line[k] == '=')
@@ -36,13 +36,15 @@ vector<Var>	makeVars(vector<string> data)
 						vars.push_back(new Var(isTruth, varName));
 					else if (isTruth)
 					{
-						
+						temp = getVar(varName, vars);
+						temp->setState(true);
+						temp->setFinal(true);
 					}
-					cout << "VAR: " << varName << endl;
 				}
 			if (line[k] == '#')
 				break;
 			k++;
 		}
 	}
+	return (vars);
 }

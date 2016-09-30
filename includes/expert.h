@@ -5,6 +5,7 @@
 # include <string>
 # include <fstream>
 # include <vector>
+# include <ctype.h>
 # include "Rule.class.h"
 # include "Var.class.h"
 

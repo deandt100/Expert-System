@@ -5,7 +5,9 @@ vector<string>	readFile(string fileName)
 	ifstream		file;
 	string			line;
 	vector<string>	fileData;
+	int				i;
 
+	i = 0;
 	file.open(fileName);
 	if (!file)
 	{
@@ -15,12 +17,13 @@ vector<string>	readFile(string fileName)
 	while (!file.eof())
 	{
 		getline(file, line);
-		if (line.empty())
+		if (line.empty() && i == 0)
 		{
 			cout << "Error: File cannot be empty" << endl;
 			exit (-1);
 		}
 		fileData.push_back(line);
+		i++;
 	}
 	file.close();
 	return (fileData);

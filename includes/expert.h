@@ -12,4 +12,6 @@ using namespace std;
 
 vector<string>	readFile(string fileName);
 
+vector<Var>		makeVars(vector<string> data);
+
 #endif

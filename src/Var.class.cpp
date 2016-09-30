@@ -3,6 +3,6 @@
 Var::Var(bool state, char name)
 {
 	this->state = state;
-	this->state = false;
+	this->isFinal = state;
 	this->name = name;
 }

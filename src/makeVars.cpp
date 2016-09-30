@@ -26,7 +26,7 @@ vector<Var*>	makeVars(vector<string> data)
 		line = (char *)data.at(i).c_str();
 		while (line[k])
 		{
-			if (line[k] == '=')
+			if (line[k] == '=' && line[k + 1] != '>')
 				isTruth = true;
 			if (isalpha(line[k]))
 				if (isupper(line[k]))

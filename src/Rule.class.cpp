@@ -1,4 +1,4 @@
-#include <Rule.class.h>
+#include "Rule.class.h"
 
 Rule::Rule(char *expr, char *conc)
 {

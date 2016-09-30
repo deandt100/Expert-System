@@ -5,7 +5,8 @@
 # include <string>
 # include <fstream>
 # include <vector>
-# include <Rule.class.h>
+# include "Rule.class.h"
+# include "Var.class.h"
 
 using namespace std;
 

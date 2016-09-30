@@ -1,14 +1,7 @@
-#include <expert.h>
+#include "Var.class.h"
 
-class Var
+Var::Var(bool state)
 {
-	private:
-		bool	state;
-		bool	isFinal;
-
-	public:
-		void	setState(bool state){ this->state = state; }
-		void	setFinal(bool isFinal){ this->isFinal = isFinal; }
-		bool	getState(){ return (state); }
-		bool	getFinal(){ return (state); }
-};
+	this->state = state;
+	this->state = false;
+}

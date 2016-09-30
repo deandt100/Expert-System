@@ -18,5 +18,8 @@ int	main(int argc, char **argv)
 	{
 		cout << "Error: Incorrect parameters" << endl;
 	}
+	exprVal(removeWhite("A	+B"), vars);
+	exprVal(removeWhite("A^! 	B"), vars);
+	exprVal(removeWhite("!	A |! 	B"), vars);
 	return 0;
 }

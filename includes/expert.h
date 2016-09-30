@@ -19,4 +19,8 @@ Var				*getVar(char varName, vector<Var*> vars);
 
 bool			checkLine(char *line);
 
+bool			exprVal(string expr, vector<Var*> vars);
+
+string			removeWhite(string str);
+
 #endif

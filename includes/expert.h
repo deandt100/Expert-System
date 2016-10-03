@@ -35,4 +35,6 @@ string			getSub(string expr, int *start, int *count);
 
 string			getQuery(vector<string> data);
 
+vector<Rule*>	getRelatedRules(char query, vector<Rule*> rules);
+
 #endif

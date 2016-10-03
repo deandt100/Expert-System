@@ -33,4 +33,6 @@ string			getExpr(string expr, string op);
 
 string			getSub(string expr, int *start, int *count);
 
+string			getQuery(vector<string> data);
+
 #endif

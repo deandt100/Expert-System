@@ -17,8 +17,6 @@ vector<Rule*>	makeRules(vector<string> data)
 			conc = temp.substr(temp.find("=>") + 2, temp.find("#") - (temp.find("=>") + 2));
 		else
 			conc = temp.substr(temp.find("=>") + 2, temp.length() - (temp.find("=>") + 2));
-		cout << "EXPR: " << expr << endl;
-		cout << "CONC: " << conc << endl;
 		rules.push_back(new Rule(expr, conc));
 	}
 	if (rules.empty())

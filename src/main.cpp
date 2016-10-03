@@ -4,15 +4,16 @@ int	main(int argc, char **argv)
 {
 	vector<string>	data;
 	vector<Var*>	vars;
+	vector<Rule*>	rules;
+	string			query;
 
 	if (argc == 2)
 	{
 		data = readFile(argv[1]);
 		vars = makeVars(data);
-		for (int i = 0; i < vars.size(); i++)
-		{
-			cout << "VAR: " << vars.at(i)->getName() << endl << "STATE: " << vars.at(i)->getState() << endl;
-		}
+		rules = makeRules(data);
+		query = getQuery(data);
+		cout << query << endl;
 	}
 	else
 	{
@@ -21,6 +22,5 @@ int	main(int argc, char **argv)
 	exprVal(removeWhite("A	+B"), vars);
 	exprVal(removeWhite("A^! 	B"), vars);
 	exprVal(removeWhite("!	A |! 	B"), vars);
-	makeRules(data);
 	return 0;
 }

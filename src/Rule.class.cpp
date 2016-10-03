@@ -1,6 +1,6 @@
 #include "Rule.class.h"
 
-Rule::Rule(char *expr, char *conc)
+Rule::Rule(string expr, string conc)
 {
 	this->expr = expr;
 	this->conc = conc;

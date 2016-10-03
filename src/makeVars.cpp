@@ -30,7 +30,6 @@ vector<Var*>	makeVars(vector<string> data)
 			cout << "Syntax error line " << i + 1 << endl;
 			exit (-1);
 		}
-		//cout << "LOOP!" << endl;
 		while (line[k])
 		{
 			if (line[k] == '=' && line[k + 1] != '>')

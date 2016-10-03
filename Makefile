@@ -10,6 +10,7 @@ SRC_FILES = main.cpp \
 			exprVal.cpp \
 			removeWhite.cpp\
 			opFunctions.cpp \
+			makeRules.cpp
 
 SRC = $(addprefix src/, $(SRC_FILES))
 

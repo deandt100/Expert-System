@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 	exprVal(removeWhite("A	+B"), vars);
 	exprVal(removeWhite("A^! 	B"), vars);
 	exprVal(removeWhite("!	A |! 	B"), vars);
+	makeRules(data);
 	return 0;
 }

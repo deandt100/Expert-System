@@ -23,4 +23,12 @@ bool			exprVal(string expr, vector<Var*> vars);
 
 string			removeWhite(string str);
 
+bool			isOp(char c);
+
+int				countOp(string expr);
+
+string			getExpr(string expr, string op);
+
+string			getSub(string expr, int *start, int *count);
+
 #endif

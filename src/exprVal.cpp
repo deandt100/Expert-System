@@ -2,6 +2,10 @@
 
 bool	getVarValue(char name, vector<Var*> vars)
 {
+	if (name == '1')
+		return true;
+	if (name == '0')
+		return false;
 	for (int i = 0 ; i < vars.size(); i++)
 	{
 		if (vars[i]->getName() == name)
@@ -11,14 +15,10 @@ bool	getVarValue(char name, vector<Var*> vars)
 	return (false);	
 }
 
-bool	isOp(char c)
-{
-	return (c == '+' || c == '|' || c == '^');
-}
 
 /*
 ** Takes a single expression eg. 'A|!B' and gets the value.
-** assumes no whitespaces.
+** assumes no whitespaces - use removeWhite().
 */
 
 bool	subExpr(string expr, vector<Var*> vars)
@@ -47,7 +47,7 @@ bool	subExpr(string expr, vector<Var*> vars)
 		i++;
 	}
 	v2 = (n2) ? !getVarValue(expr[i++], vars) : getVarValue(expr[i++], vars);
-	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
+//	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
 	switch (op)
 	{
 		case '+' :
@@ -65,9 +65,50 @@ bool	subExpr(string expr, vector<Var*> vars)
 	}
 }
 
+string	doNext(string expr, vector<Var*> vars)
+{
+	int		start;
+	int		count;
+	string	sub;
+	string	val;
+
+	if (expr.find("+") != -1)
+	{
+		start = expr.find("+") - 1;
+		sub = getSub(expr, &start, &count);
+		cout << "found : "<< sub << endl;
+	}
+	else if (expr.find("|") != -1)
+	{
+		start = expr.find("|") - 1;
+		sub = getSub(expr, &start, &count);
+	//	sub = expr.substr(start, 3);
+		cout << "found : "<< sub << endl;
+	}
+	else if (expr.find("^") != -1)
+	{
+		start = expr.find("^") - 1;
+	//	sub = expr.substr(start, 3);
+		sub = getSub(expr, &start, &count);
+		cout << "found : "<< sub << endl;
+	}
+	else
+		return expr;
+	val = (subExpr(sub, vars)) ? "1" : "0";
+	expr.replace(start, count, val);
+	cout << "new : "<< expr << endl;
+}
+
 bool	exprVal(string expr, vector<Var*> vars)
 {
 	expr = removeWhite(expr);
-	cout << ((subExpr(expr, vars)) ? "true" : "false") << endl;
+	//cout << ((subExpr(expr, vars)) ? "true" : "false") << endl;
+	
+	/*while (countOp(expr) > 1)
+	{
+		expr = doNext(expr, vars);
+	}*/
+	doNext("A|!B+C", vars);
+	cout << "expr : "<< expr << endl;
 	return (true);
 }

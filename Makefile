@@ -8,7 +8,8 @@ SRC_FILES = main.cpp \
 			getVar.cpp \
 			checkLine.cpp \
 			exprVal.cpp \
-			removeWhite.cpp
+			removeWhite.cpp\
+			opFunctions.cpp \
 
 SRC = $(addprefix src/, $(SRC_FILES))
 

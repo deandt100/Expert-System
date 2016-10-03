@@ -8,7 +8,7 @@ vector<Rule*>	getRelatedRules(char query, vector<Rule*> rules)
 	for (int i = 0; i < rules.size(); i++)
 	{
 		conc = rules.at(i)->getConc();
-		if (conc.find(query) != string::npos)
+		if (conc.find(query) != string::npos && rules.at(i)->getUsed() == false)
 			ret.push_back(rules.at(i));
 	}
 	return (ret);

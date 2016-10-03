@@ -31,7 +31,7 @@ int				countOp(string expr);
 
 bool			hasBrackets(string expr);
 
-bool			isFinal(string expr);
+bool			isFinal(string expr, vector<Var*> vars);
 
 string			getExpr(string expr, string op);
 

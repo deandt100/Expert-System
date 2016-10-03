@@ -2,7 +2,22 @@
 
 bool	resolveQuery(char query, vector<Rule*> rules, vector<Var*> vars, vector<Rule*> allRules)
 {
-	return (false);
+	bool	result;
+	bool	oldResult;
+
+	result = false;
+	for (int i = 0; i < rules.size(); i++)
+	{
+		oldResult = result;
+		if (isFinal(rules.at(i)->getExpr(), vars))
+			result = exprVal(rules.at(i)->getExpr(), vars);
+		if (i > 0 && oldResult != result)
+		{
+			cout << "ERROR: Bad rule" << endl;
+			exit (0);
+		}
+	}
+	return (result);
 }
 
 void	resolveQueries(string queries, vector<Rule*> rules, vector<Var*> vars)

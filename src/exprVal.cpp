@@ -96,6 +96,7 @@ string	doNext(string expr, vector<Var*> vars)
 		return expr;
 	val = (subExpr(sub, vars)) ? "1" : "0";
 	expr.replace(start, count, val);
+	return (expr);
 	cout << "new : "<< expr << endl;
 }
 

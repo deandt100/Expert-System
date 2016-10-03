@@ -3,12 +3,14 @@
 bool	checkLine(char *line)
 {
 	int		i;
+	int		brackets;
 	bool	foundAssign;
 	bool	foundChar;
 	bool	isQuery;
 	bool	isFact;
 
 	i = 0;
+	brackets = 0;
 	foundAssign = false;
 	foundChar = false;
 	isFact = false;
@@ -17,6 +19,10 @@ bool	checkLine(char *line)
 	{
 		cout << line[i] << " " << isalpha(line[i]) << endl;
 		cout << line[i + 1] << " " << isalpha(line[i + 1]) << endl;
+		if (line[i] == '(')
+			brackets++;
+		else if (line[i] == ')')
+			brackets--;
 		if (line[i] == '#')
 			break;
 		if (isalpha(line[i]) && !isalpha(line[i + 1]))
@@ -42,6 +48,8 @@ bool	checkLine(char *line)
 		}
 		if (line[i] == '=' && line[i + 1] == '>')
 		{
+			if (brackets != 0)
+				return (false);
 			if (foundChar == false)
 				return (false);
 			if (foundAssign == true)
@@ -51,6 +59,8 @@ bool	checkLine(char *line)
 		}
 		i++;
 	}
+	if (brackets != 0)
+		return (false);
 	if (foundAssign && foundChar)
 		return (true);
 	else

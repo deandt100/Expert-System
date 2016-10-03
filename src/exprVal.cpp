@@ -15,7 +15,6 @@ bool	getVarValue(char name, vector<Var*> vars)
 	return (false);	
 }
 
-
 /*
 ** Takes a single expression eg. 'A|!B' and gets the value.
 ** assumes no whitespaces - use removeWhite().
@@ -76,40 +75,63 @@ string	doNext(string expr, vector<Var*> vars)
 	{
 		start = expr.find("+") - 1;
 		sub = getSub(expr, &start, &count);
-		cout << "found : "<< sub << endl;
 	}
 	else if (expr.find("|") != -1)
 	{
 		start = expr.find("|") - 1;
 		sub = getSub(expr, &start, &count);
-	//	sub = expr.substr(start, 3);
-		cout << "found : "<< sub << endl;
 	}
 	else if (expr.find("^") != -1)
 	{
 		start = expr.find("^") - 1;
-	//	sub = expr.substr(start, 3);
 		sub = getSub(expr, &start, &count);
-		cout << "found : "<< sub << endl;
 	}
 	else
 		return expr;
+	//cout << "found : "<< sub << endl;
 	val = (subExpr(sub, vars)) ? "1" : "0";
 	expr.replace(start, count, val);
 	return (expr);
-	cout << "new : "<< expr << endl;
+	
+}
+
+string	doBracket(string expr, vector<Var*> vars)
+{
+	int		start;
+	int		end;
+	int		len;
+	string	temp;
+
+	start = expr.rfind("(");
+	if (start != -1)
+	{
+		temp = expr.substr(start);
+		end = temp.find(")");
+		temp = temp.substr(1, end - 1);
+	}
+	else
+		return expr;
+	//cout << "temp : "<< temp << endl;
+	while (countOp(temp) > 0)
+	{
+		temp = doNext(temp, vars);
+	}
+	expr.replace(start, end + 1, temp);
+	return expr;
 }
 
 bool	exprVal(string expr, vector<Var*> vars)
 {
 	expr = removeWhite(expr);
 	//cout << ((subExpr(expr, vars)) ? "true" : "false") << endl;
-	
-	/*while (countOp(expr) > 1)
+	while (hasBrackets(expr))
+	{
+		expr = doBracket(expr, vars);
+	}
+	while (countOp(expr) > 0)
 	{
 		expr = doNext(expr, vars);
-	}*/
-	doNext("A|!B+C", vars);
+	}
 	cout << "expr : "<< expr << endl;
-	return (true);
+	return (expr[0] == '1');
 }

@@ -14,19 +14,25 @@ int		countOp(string expr)
 	i = 0;
 	while (i < expr.length())
 	{
-		if (isOp(expr.at(i)))
+		if (isOp(expr[i]))
 			count++;
 		i++;
 	}
 	return (count);
 }
 
-string	getExpr(string expr, string op)
+bool	hasBrackets(string expr)
 {
-	if (expr.find(op) != -1)
-		return (expr.substr(expr.find(op) - 1, 3));
-	else
-		return expr;
+	int	i;
+
+	i = 0;
+	while (i < expr.length())
+	{
+		if (expr[i] == '(' || expr[i] == ')')
+			return (true);
+		i++;
+	}
+	return (false);
 }
 
 string	getSub(string expr, int *start, int *count)

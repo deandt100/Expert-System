@@ -14,21 +14,7 @@ int	main(int argc, char **argv)
 		vars = makeVars(data);
 		rules = makeRules(data);
 		query = getQuery(data);
-		
-		int	i;
-		i = 0;
-		while (i < query.length())
-		{
-			temp = getRelatedRules(query[i], rules);
-			if (!temp.empty())
-			{
-				for (int k = 0; k < temp.size(); k++)
-				{
-					cout << "QUERY: " << query[i] << " RULE: " << temp.at(k)->getExpr() << endl;
-				}
-			}
-			i++;
-		}
+		resolveQueries(query, rules, vars);
 	}
 	else
 	{

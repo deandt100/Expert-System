@@ -12,7 +12,8 @@ SRC_FILES = main.cpp \
 			opFunctions.cpp \
 			makeRules.cpp \
 			getQuery.cpp \
-			getRelatedRules.cpp
+			getRelatedRules.cpp \
+			resolveQueries.cpp
 
 SRC = $(addprefix src/, $(SRC_FILES))
 

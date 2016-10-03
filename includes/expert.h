@@ -37,4 +37,6 @@ string			getQuery(vector<string> data);
 
 vector<Rule*>	getRelatedRules(char query, vector<Rule*> rules);
 
+void			resolveQueries(string queries, vector<Rule*> rules, vector<Var*> *vars);
+
 #endif

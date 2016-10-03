@@ -5,6 +5,7 @@ int	main(int argc, char **argv)
 	vector<string>	data;
 	vector<Var*>	vars;
 	vector<Rule*>	rules;
+	vector<Rule*>	temp;
 	string			query;
 
 	if (argc == 2)
@@ -13,7 +14,21 @@ int	main(int argc, char **argv)
 		vars = makeVars(data);
 		rules = makeRules(data);
 		query = getQuery(data);
-		cout << query << endl;
+		
+		int	i;
+		i = 0;
+		while (i < query.length())
+		{
+			temp = getRelatedRules(query[i], rules);
+			if (!temp.empty())
+			{
+				for (int k = 0; k < temp.size(); k++)
+				{
+					cout << "QUERY: " << query[i] << " RULE: " << temp.at(k)->getExpr() << endl;
+				}
+			}
+			i++;
+		}
 	}
 	else
 	{

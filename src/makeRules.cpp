@@ -13,7 +13,7 @@ vector<Rule*>	makeRules(vector<string> data)
 		if (temp[0] == '=' || temp[0] == '?')
 			break;
 		expr = temp.substr(0, temp.find("=>"));
-		if (temp.find("#"))
+		if (temp.find("#") != string::npos)
 			conc = temp.substr(temp.find("=>") + 2, temp.find("#") - (temp.find("=>") + 2));
 		else
 			conc = temp.substr(temp.find("=>") + 2, temp.length() - (temp.find("=>") + 2));

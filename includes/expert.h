@@ -29,7 +29,9 @@ bool			isOp(char c);
 
 int				countOp(string expr);
 
- bool			hasBrackets(string expr);
+bool			hasBrackets(string expr);
+
+bool			isFinal(string expr);
 
 string			getExpr(string expr, string op);
 

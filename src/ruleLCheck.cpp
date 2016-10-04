@@ -10,6 +10,8 @@ int	getType(char c)
 		return (3);
 	if (c == ')')
 		return (4);
+	if (c == '!')
+		return (5);
 	else
 		return (0);
 }
@@ -31,12 +33,12 @@ bool	opCheck(string str, int line)
 {
 	for (int i = 0; i < str.length(); i++)
 	{
-	//	cout << "str[i] = " << str[i] << endl;
+		//cout << "str[i] = " << str[i] << endl;
 		switch (getType(str[i]))
 		{
 			case 1:
 			{
-				if (i < 0 && getType(str[i - 1]) != 2 && getType(str[i - 1]) != 3)
+				if (i > 0 && getType(str[i - 1]) != 2 && getType(str[i - 1]) != 3 && getType(str[i - 1]) != 5)
 					ruleErr(1, line);
 				if (i < str.length() - 1 && getType(str[i + 1]) != 2 && getType(str[i + 1]) != 4)
 					ruleErr(1, line);
@@ -45,10 +47,10 @@ bool	opCheck(string str, int line)
 			case 2:
 			{
 				if (i >= str.length() - 1 || i == 0)
-				ruleErr(2, line);
+					ruleErr(2, line);
 				if (i > 0 && getType(str[i - 1]) != 1 && getType(str[i - 1]) != 4)
 					ruleErr(2, line);
-				if (i < str.length() - 1 && getType(str[i + 1]) != 1 && getType(str[i + 1]) != 3)
+				if (i < str.length() - 1 && getType(str[i + 1]) != 1 && getType(str[i + 1]) != 3 && getType(str[i + 1]) != 5)
 					ruleErr(2, line);
 					
 				break;

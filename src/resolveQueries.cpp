@@ -11,6 +11,13 @@ bool	resolveQuery(char query, vector<Rule*> rules, vector<Var*> vars, vector<Rul
 		oldResult = result;
 		if (isFinal(rules.at(i)->getExpr(), vars))
 			result = exprVal(rules.at(i)->getExpr(), vars);
+		else
+		{
+			while (!isFinal(rules.at(i)->getExpr(), vars))
+			{
+				
+			}
+		}
 		if (i > 0 && oldResult != result)
 		{
 			cout << "ERROR: Bad rule" << endl;

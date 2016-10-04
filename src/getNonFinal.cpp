@@ -1,6 +1,6 @@
 #include <expert.h>
 
-bool	getNonFinal(string expr, vector<Var*> vars)
+Var	*getNonFinal(string expr, vector<Var*> vars)
 {
 	int	i;
 	Var	*var;

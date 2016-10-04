@@ -23,7 +23,7 @@ bool			checkLine(char *line);
 
 bool			exprVal(string expr, vector<Var*> vars);
 
-bool			getNonFinal(string expr, vector<Var*> vars);
+Var				*getNonFinal(string expr, vector<Var*> vars);
 
 string			removeWhite(string str);
 

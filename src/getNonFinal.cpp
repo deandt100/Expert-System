@@ -15,5 +15,5 @@ Var	*getNonFinal(string expr, vector<Var*> vars)
 		}
 		i++;
 	}
-	return (true);
+	return (NULL);
 }

@@ -46,7 +46,6 @@ bool	subExpr(string expr, vector<Var*> vars)
 		i++;
 	}
 	v2 = (n2) ? !getVarValue(expr[i++], vars) : getVarValue(expr[i++], vars);
-//	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
 	switch (op)
 	{
 		case '+' :
@@ -88,7 +87,6 @@ string	doNext(string expr, vector<Var*> vars)
 	}
 	else
 		return expr;
-	//cout << "found : "<< sub << endl;
 	val = (subExpr(sub, vars)) ? "1" : "0";
 	expr.replace(start, count, val);
 	return (expr);
@@ -111,7 +109,6 @@ string	doBracket(string expr, vector<Var*> vars)
 	}
 	else
 		return expr;
-	//cout << "temp : "<< temp << endl;
 	while (countOp(temp) > 0)
 	{
 		temp = doNext(temp, vars);
@@ -123,7 +120,6 @@ string	doBracket(string expr, vector<Var*> vars)
 bool	exprVal(string expr, vector<Var*> vars)
 {
 	expr = removeWhite(expr);
-	//cout << ((subExpr(expr, vars)) ? "true" : "false") << endl;
 	while (hasBrackets(expr))
 	{
 		expr = doBracket(expr, vars);
@@ -132,6 +128,5 @@ bool	exprVal(string expr, vector<Var*> vars)
 	{
 		expr = doNext(expr, vars);
 	}
-	cout << "expr : "<< expr << endl;
 	return (expr[0] == '1');
 }

@@ -11,7 +11,7 @@ vector<string>	readFile(string fileName)
 	file.open(fileName);
 	if (!file)
 	{
-		cout << "Error: File could not be opened" << endl;
+		cout << "ERROR: File could not be opened" << endl;
 		exit (-1);
 	}
 	while (!file.eof())
@@ -19,7 +19,7 @@ vector<string>	readFile(string fileName)
 		getline(file, line);
 		if (line.empty() && i == 0)
 		{
-			cout << "Error: File cannot be empty" << endl;
+			cout << "ERROR: File cannot be empty" << endl;
 			exit (-1);
 		}
 		if (!line.empty())

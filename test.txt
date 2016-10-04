@@ -1,5 +1,6 @@
-A + B => C
+!G + !C => Q
+A + B => !C + !G
 
-=ABD
+=AB
 
-?C
+?CGQ

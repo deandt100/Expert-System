@@ -16,6 +16,7 @@ SRC_FILES = main.cpp \
 			resolveQueries.cpp\
 			isFinal.cpp\
 			getNonFinal.cpp \
+			ruleLCheck.cpp \
 
 SRC = $(addprefix src/, $(SRC_FILES))
 

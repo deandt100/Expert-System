@@ -45,4 +45,6 @@ vector<Rule*>	getRelatedRules(char query, vector<Rule*> rules);
 
 void			resolveQueries(string queries, vector<Rule*> rules, vector<Var*> vars);
 
+void			ruleLCheck(string expr, string conc, int line);
+
 #endif

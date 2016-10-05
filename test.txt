@@ -1,7 +1,7 @@
-A => C
+#A => C
 !G + !C => Q
 A + B => !C + !G
 
-=AB
+=ABG
 
-?CGQ
+?U

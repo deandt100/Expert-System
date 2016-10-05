@@ -47,4 +47,6 @@ void			resolveQueries(string queries, vector<Rule*> rules, vector<Var*> vars);
 
 void			ruleLCheck(string expr, string conc, int line);
 
+string			ignoreComment(string str);
+
 #endif

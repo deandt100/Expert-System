@@ -13,6 +13,7 @@ int	main(int argc, char **argv)
 		data = readFile(argv[1]);
 		vars = makeVars(data);
 		rules = makeRules(data);
+		
 		query = getQuery(data);
 		resolveQueries(query, rules, vars);
 	}

@@ -48,7 +48,6 @@ bool	subExpr(string expr, vector<Var*> vars)
 		i++;
 	}
 	v2 = (n2) ? !getVarValue(expr[i++], vars) : getVarValue(expr[i++], vars);
-//	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
 	switch (op)
 	{
 		case '+' :
@@ -90,7 +89,6 @@ string	doNext(string expr, vector<Var*> vars)
 	}
 	else
 		return expr;
-	//cout << "found : "<< sub << endl;
 	val = (subExpr(sub, vars)) ? "1" : "0";
 	expr.replace(start, count, val);
 	return (expr);

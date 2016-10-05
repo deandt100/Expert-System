@@ -53,6 +53,7 @@ void	resolveQueries(string queries, vector<Rule*> rules, vector<Var*> vars)
 
 	i = 0;
 	result = false;
+	queries = ignoreComment(queries);
 	while (i < queries.length())
 	{
 		result = resolveQuery(queries[i], getRelatedRules(queries[i], rules), vars, rules);

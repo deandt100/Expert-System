@@ -59,18 +59,6 @@ bool	opCheck(string str, int line)
 	return (true);
 }
 
-string	ignoreComment(string str)
-{
-	int	pos;
-
-	pos = str.find("#");
-	if (pos != -1)
-	{
-		str = str.substr(0, pos);
-	}
-	return (str);
-}
-
 void	ruleLCheck(string expr, string conc, int line)
 {
 	bool			op;

@@ -35,6 +35,18 @@ bool	hasBrackets(string expr)
 	return (false);
 }
 
+string	ignoreComment(string str)
+{
+	int	pos;
+
+	pos = str.find("#");
+	if (pos != -1)
+	{
+		str = str.substr(0, pos);
+	}
+	return (str);
+}
+
 string	getSub(string expr, int *start, int *count)
 {
 	*count = 3;

@@ -1,0 +1,10 @@
+A + B + C => D
+A + B + C + D => E
+(A + B) | (C + D) => F
+(!A + B) | (C + D) => G
+(!A + B) + (C + D) => H
+(G ^ H) + (A | H) => I 
+
+=ABC
+
+?DEFGHI

@@ -33,7 +33,6 @@ bool	opCheck(string str, int line)
 {
 	for (int i = 0; i < str.length(); i++)
 	{
-		//cout << "str[i] = " << str[i] << endl;
 		switch (getType(str[i]))
 		{
 			case 1:

@@ -31,6 +31,8 @@ bool	subExpr(string expr, vector<Var*> vars)
 
 	if (expr.length() == 1)
 		return (getVarValue(expr[0], vars));
+	if (expr.length() == 2 && expr[0] == '!')
+		return (!getVarValue(expr[1], vars));
 	if (expr[i] == '!')
 	{
 		n1 = true;
@@ -132,6 +134,8 @@ bool	exprVal(string expr, vector<Var*> vars)
 	{
 		expr = doNext(expr, vars);
 	}
+	if (expr[0] != '0' && expr[0] != '1')
+		expr = (subExpr(expr, vars)) ? '1' : '0';
 	cout << "expr : "<< expr << endl;
 	return (expr[0] == '1');
 }

@@ -10,7 +10,7 @@ class Var
 		void	setState(bool state){ this->state = state; }
 		void	setFinal(bool isFinal){ this->isFinal = isFinal; }
 		bool	getState(){ return (state); }
-		bool	getFinal(){ return (state); }
+		bool	getFinal(){ return (isFinal); }
 		char	getName(){ return (name); }
 
 	//Construct

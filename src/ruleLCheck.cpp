@@ -59,11 +59,20 @@ bool	opCheck(string str, int line)
 	return (true);
 }
 
+string	ignoreComment(string str)
+{
+	if (str.find("#") != -1)
+	{
+
+	}
+}
+
 void	ruleLCheck(string expr, string conc, int line)
 {
 	bool			op;
 	vector<char>	rvars;
 	int				i;
+
 
 	if (hasBrackets(conc))
 	{
@@ -72,7 +81,6 @@ void	ruleLCheck(string expr, string conc, int line)
 	}
 	opCheck(expr, line + 1);
 	opCheck(conc, line + 1);
-	//Check variable logic
 	i = 0;
 	while (i < conc.length())
 	{

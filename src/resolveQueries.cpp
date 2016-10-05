@@ -33,7 +33,6 @@ bool	resolveQuery(char query, vector<Rule*> rules, vector<Var*> vars, vector<Rul
 						result = false;
 					else
 						result = true;
-					oldResult = result;
 				}
 			}
 		}

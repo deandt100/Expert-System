@@ -61,10 +61,14 @@ bool	opCheck(string str, int line)
 
 string	ignoreComment(string str)
 {
-	if (str.find("#") != -1)
-	{
+	int	pos;
 
+	pos = str.find("#");
+	if (pos != -1)
+	{
+		str = str.substr(0, pos);
 	}
+	return (str);
 }
 
 void	ruleLCheck(string expr, string conc, int line)
@@ -73,7 +77,8 @@ void	ruleLCheck(string expr, string conc, int line)
 	vector<char>	rvars;
 	int				i;
 
-
+	expr = ignoreComment(expr);
+	conc = ignoreComment(conc);
 	if (hasBrackets(conc))
 	{
 		cerr << "Line " << line <<" ERROR : Brackets not valid in conclusion." << endl;

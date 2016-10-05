@@ -113,7 +113,6 @@ string	doBracket(string expr, vector<Var*> vars)
 	}
 	else
 		return expr;
-	//cout << "temp : "<< temp << endl;
 	while (countOp(temp) > 0)
 	{
 		temp = doNext(temp, vars);
@@ -125,7 +124,6 @@ string	doBracket(string expr, vector<Var*> vars)
 bool	exprVal(string expr, vector<Var*> vars)
 {
 	expr = removeWhite(expr);
-	//cout << ((subExpr(expr, vars)) ? "true" : "false") << endl;
 	while (hasBrackets(expr))
 	{
 		expr = doBracket(expr, vars);
@@ -136,6 +134,5 @@ bool	exprVal(string expr, vector<Var*> vars)
 	}
 	if (expr[0] != '0' && expr[0] != '1')
 		expr = (subExpr(expr, vars)) ? '1' : '0';
-	cout << "expr : "<< expr << endl;
 	return (expr[0] == '1');
 }
